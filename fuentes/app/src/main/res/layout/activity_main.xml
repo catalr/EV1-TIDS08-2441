@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--Formulario-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="20dp">
+        <!--Artista-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Artista:"
+                android:textColor="@color/primary_text"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/textSize">
+            </TextView>
+            <EditText
+                android:id="@+id/artista"
+                android:layout_width="150sp"
+                android:layout_height="match_parent">
+            </EditText>
+        </LinearLayout>
+
+
+        <!--Fecha-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Fecha:"
+                android:gravity="center_vertical"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/textSize"
+                >
+            </TextView>
+            <EditText
+                android:id="@+id/fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="date"
+                android:hint="dd-MM-yyyy"
+                >
+            </EditText>
+
+        </LinearLayout>
+
+
+        <!--genre-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/genero_musical"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/textSize">
+            </TextView>
+            <Spinner
+                android:id="@+id/genre_spinner"
+                android:layout_width="wrap_content"
+                android:spinnerMode="dialog"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+        <!--valor-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Valor de la Entrada: $"
+                android:gravity="center_vertical"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/textSize">
+            </TextView>
+            <EditText
+                android:id="@+id/valorEntrada"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="000000">
+            </EditText>
+
+        </LinearLayout>
+
+        <!--Calificacion-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Calificación:"
+                android:textColor="@color/primary_text"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/textSize">
+            </TextView>
+            <Spinner
+                android:id="@+id/grade_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:spinnerMode="dialog"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Agregar"
+            ></Button>
+
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/listaArtistas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+
+</LinearLayout>
