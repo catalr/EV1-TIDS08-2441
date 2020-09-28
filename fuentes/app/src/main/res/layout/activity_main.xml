@@ -55,7 +55,9 @@
                 android:id="@+id/fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:inputType="date"
+                android:inputType="none"
+                android:clickable="true"
+                android:focusable="false"
                 android:hint="dd-MM-yyyy"
                 >
             </EditText>
@@ -103,7 +105,8 @@
                 android:id="@+id/valorEntrada"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="000000">
+                android:hint="000000"
+                android:inputType="number">
             </EditText>
 
         </LinearLayout>
@@ -126,7 +129,7 @@
                 android:id="@+id/grade_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:spinnerMode="dialog"/>
+                android:spinnerMode="dialog" />
 
         </LinearLayout>
 
