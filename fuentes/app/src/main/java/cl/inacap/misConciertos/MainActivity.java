@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -111,20 +112,33 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }catch(NumberFormatException ex){
                     //what if it was a free show huh
-                    errores.add("-El precio de la entrada debe ser mayor a 0");
+                    errores.add("-El precio de la entrada debe ser mayor a 0 y menor a 2147483647");
                 }
 
                 if(errores.isEmpty()){
-                    Evento evento = new Evento(artista,fecha,genero,entrada,calificacion);
+                    final Evento evento = new Evento(artista,fecha,genero,entrada,calificacion);
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
                     //TODO: give a chance to cancel event creation
-                    alertBuilder.setTitle("Evento Creado ¿Ingresar?")//Define el titulo
-                            .setMessage(evento.toString())//Define el mensaje del dialogo
-                            .setPositiveButton("Aceptar", null)//Agrega el boton aceptar
-                            .create()
-                            .show();
-                    EvenDAO.add(evento);
-                    actualizarListaEventos();
+                    alertBuilder.setCancelable(true);
+                    alertBuilder.setTitle("Evento Creado ¿Ingresar?");
+                    alertBuilder.setMessage(evento.toString());
+                    alertBuilder.setPositiveButton("Aceptar",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    EvenDAO.add(evento);
+                                    limpiarFormulario();
+                                    actualizarListaEventos();
+                                    Toast.makeText(MainActivity.this, "Evento Agregado",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    alertBuilder.setNegativeButton("Cancelar",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                    alertBuilder.create().show();
                 }else {
                     mostrarErrores(errores);
                 }
@@ -134,10 +148,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void limpiarFormulario() {
+        artistaTxt.setText("");
+        fechaTxt.setText("");
+        priceTxt.setText("");
+    }
+
     private void actualizarListaEventos() {
         listAdapter = new EventoAdapter(this,EventosDAO.getAll());
         eventosLv.setAdapter(listAdapter);
         eventosLv.setVisibility(View.VISIBLE);
+
     }
 
     private void mostrarErrores(List<String> errores){

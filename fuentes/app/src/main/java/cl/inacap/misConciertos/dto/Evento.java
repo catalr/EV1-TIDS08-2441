@@ -15,11 +15,11 @@ public class Evento {
     @Override
     public String toString() {
         return
-                "artista='" + artista + '\n' +
-                ", fecha='" + fecha + '\n' +
-                ", genre='" + genre + '\n' +
-                ", valorEntrada=" + valorEntrada + '\n' +
-                ", calificacion=" + calificacion;
+                "\nArtista: " + artista + '\n' +
+                "Fecha: " + fecha + '\n' +
+                "Genero Musical: " + genre + '\n' +
+                "Valor Entrada: $" + valorEntrada + '\n' +
+                "Calificacion: " + calificacion;
     }
 
     public Evento(String artista, String fecha, String genre, int valorEntrada, int calificacion) {
