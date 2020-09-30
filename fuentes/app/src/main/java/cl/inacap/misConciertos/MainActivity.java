@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner generoSpn;
     private Button submitBtn;
     private ListView eventosLv;
+    private EventoAdapter listAdapter;
     private DatePickerDialog picker;
     private ArrayAdapter<String> genreAdapter;
     private ArrayAdapter<String> gradeAdapter;
@@ -134,7 +135,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actualizarListaEventos() {
-        //TODO: ugg
+        listAdapter = new EventoAdapter(this,EventosDAO.getAll());
+        eventosLv.setAdapter(listAdapter);
+        eventosLv.setVisibility(View.VISIBLE);
     }
 
     private void mostrarErrores(List<String> errores){

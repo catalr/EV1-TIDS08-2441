@@ -12,7 +12,7 @@ public class EventosDAO {
         eventos.add(e);
     }
 
-    public List<Evento> getAll(){
+    public static List<Evento> getAll(){
         return eventos;
     }
 }

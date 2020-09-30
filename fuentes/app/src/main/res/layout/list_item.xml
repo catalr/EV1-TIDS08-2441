@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:divider="@drawable/divider"
+    android:showDividers="middle"
+    >
+    <!--fecha-->
+    <TextView
+        android:id="@+id/fechsV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        >
+
+    </TextView>
+    <!--artista-->
+    <TextView
+        android:id="@+id/artistaV"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <!--precio-->
+    <TextView
+        android:id="@+id/precioV"
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <!--icono-->
+    <ImageView
+        android:id="@+id/gradeicV"
+        android:layout_width="0dp"
+        android:layout_weight="0.1"
+        android:layout_height="48dp">
+
+    </ImageView>
+
+
+
+</LinearLayout>
